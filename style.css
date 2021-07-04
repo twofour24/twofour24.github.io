@@ -1,0 +1,619 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+/** html, body, div, span, applet, object, iframe,**/
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */ 
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+  max-width: 1400px;
+  margin: 0 auto;    
+	line-height: 1;
+  font-size: 16px;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+#wrapper {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;  
+  border: 2px solid red;
+}
+
+/*** 
+
+HEADER        - Navigation links, Logo, Dropdown menu
+HERO          - Hero image and hero heading
+MAIN CONTENT  - Parks description cards, First images section, Events and Second images section
+FOOTER        - Footer
+
+***/
+
+
+
+/*** HEADER ***/
+
+header {
+  width: 100%;  
+  position: relative;
+  background-color: hsl(165, 100%, 35%);
+  display: grid;  
+}
+
+header img {
+  width: 100px;
+  margin-right: 20px;    
+  justify-self: right;   
+}
+
+/** Mobile Nav bar (max-width: 450px) and Tablet Nav Bar (portrait max-width: 768px) **/  
+
+.nav-toggle:checked ~ nav {  
+  transform: scale(1, 1);
+  transition: 350ms ease-in-out;  
+}
+
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 350ms ease-in-out 250ms;
+}
+
+.nav-toggle {
+  display: none; 
+}
+
+.nav-toggle-label {  
+  position: absolute;
+  top: 0%;
+  left: 0%;  
+  margin-left: 2rem;    
+  height: 100%;
+  display: flex;
+  align-items: center;      
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background-color: white;
+  height: 3px;
+  width: 30px;
+  border-radius: 2px;
+  position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: "";
+  position: absolute;  
+}
+
+.nav-toggle-label span::before {
+  bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+  top: 7px;
+}
+
+nav {
+  z-index: 99;
+  transform: scale(1, 0);
+  transition: 350ms ease-in-out;     
+}
+
+nav ul {
+  width: 100%;   
+  background-color: hsla(165, 100%, 35%);
+  position: absolute;
+  top: 50%;         
+}
+
+nav li {  
+  padding-bottom: .75rem;
+  margin-left: 2rem;   
+}
+
+nav a {
+  text-decoration: none;
+  font-family: monospace;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  color: hsl(345, 9%, 9%);
+  font-weight: 700;
+  opacity: 0;
+  border-bottom: 0px solid hsl(345, 9%, 9%);
+  transition: border 100ms ease-in 100ms;
+  transition: opacity;
+  transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover {
+   border-bottom: 2px solid hsl(345, 9%, 9%);
+   transition: border 200ms ease-in-out 100ms; 
+}
+
+nav a:active {
+  color: hsl(345, 66%, 40%);
+}
+
+/** Nav Bar Tablet landscape (min-width: 768px) and Desktop (min-width: 1024px) **/
+
+@media screen and (min-width: 768px) {
+  .nav-toggle-label {
+    display: none;
+  }
+
+  header nav {
+    transform: scale(1, 1);            
+  }
+
+  header nav ul {
+    width: 85%;    
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    transform: translate(0, -200%);    
+  }
+
+  nav a {
+    opacity: 1;
+    border-bottom: 0px solid hsl(345, 9%, 9%);    
+  }
+
+  nav a:hover {    
+    border-bottom: 5px solid hsl(345, 9%, 9%);
+    transition: border 150ms ease-in-out;
+  }
+} 
+
+@media screen and (min-width: 1024px) {
+  header nav {
+    width: 55%;
+  }
+
+  nav a {
+    border-bottom: 0px solid hsl(345, 9%, 9%);
+  }
+  nav a:hover {
+    border-bottom: 5px solid hsl(345, 9%, 9%);
+    transition: border 150ms ease-in-out;  
+  }
+}
+
+
+/*** HERO ***/
+
+.hero {
+  width: 100%;  
+  height: 60vmin;  
+  background-image: url(../images/hero.jpg);
+  background-size: cover;     
+  z-index: 1;
+  isolation: isolate;
+}
+
+.hero-heading {
+  font-size: 12px;
+  width: 60%;
+  height: 100%;      
+  display: flex;
+  justify-content: center;
+  align-items: center;    
+  position: relative;
+}
+
+.hero-heading::after {
+  content: "";    
+  background-image: linear-gradient(to right, hsla(221, 50%, 39%, 1), hsla(221, 50%, 39%, 0));
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 1;
+  mix-blend-mode: multiply;
+}
+
+.hero h1 {
+  max-width: 100%;
+  max-height: auto;      
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.5em;  
+  color: hsl(0, 100%, 100%);
+  text-align: center;     
+  line-height: 1.5em;
+  margin-left: 1em;          
+}
+
+.hero h1 span {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 1.75em;
+}
+
+@media only screen and (min-width: 768px) {
+  .hero-heading {    
+    font-size: 20px;
+  }  
+}
+
+@media only screen and (min-width: 1024px) {
+  .hero-heading {        
+    font-size: 28px;    
+  }  
+}
+
+
+/*** MAIN CONTENT ***/
+/** Mobile view (max-width: 480px) **/
+#parks {
+  max-width: 90%;
+  padding: 20px;
+  margin: 0 auto;
+  background-color: hsl(209, 53%, 79%);
+  display: flex;
+  flex-direction: column;  
+}
+
+.one {
+  margin-top: 30px;
+  padding: 10px;
+  background-color: hsl(177, 98%, 49%);
+  border-top: 2px solid hsl(194, 23%, 64%);
+  border-left: 2px solid hsl(194, 23%, 64%);
+  box-shadow: 10px 10px 5px hsla(345, 9%, 9%, 0.5);
+}
+
+.two {
+  margin-top: 30px;
+  padding: 10px;
+  background-color: hsl(177, 98%, 49%);
+  border-top: 2px solid hsl(194, 23%, 64%);
+  border-left: 2px solid hsl(194, 23%, 64%);
+  box-shadow: 10px 10px 5px hsla(345, 9%, 9%, 0.5);
+}
+
+.three {
+  margin-top: 30px;
+  padding: 10px;
+  background-color: hsl(177, 98%, 49%);
+  border-top: 2px solid hsl(194, 23%, 64%);
+  border-left: 2px solid hsl(194, 23%, 64%);
+  box-shadow: 10px 10px 5px hsla(345, 9%, 9%, 0.5);
+}
+
+#parks h3 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 1.75rem;
+  text-align: center;
+  margin-top: 1.14rem;
+}
+
+#parks p {
+  max-width: 85%;
+  margin: 0 auto;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1rem;
+  line-height: 1.5em;
+  text-align: center;
+  padding: 10px 30px 10px 30px;
+}
+
+
+/** Desktop view (min-width: 1024px) **/
+@media only screen and (min-width: 1024px) {
+  #parks {
+    max-width: 100%;
+    padding: 50px;
+    background-color: hsl(209, 53%, 79%);
+    display: grid;
+    justify-content: space-around;    
+    grid-gap: 20px;
+    grid-template-columns: 50px repeat(3, minmax(300px, 500px)) 50px;      
+    grid-template-areas: 
+    ". one two three .";
+}
+
+.one {
+  grid-area: one;
+  padding: 10px;
+  border-top: 2px solid hsl(194, 23%, 64%);
+  border-left: 2px solid hsl(194, 23%, 64%);
+  box-shadow: 4px 4px 10px 5px hsl(194, 23%, 64%);
+}
+
+.two {
+  grid-area: two;
+  padding: 10px;
+  border-top: 2px solid hsl(194, 23%, 64%);
+  border-left: 2px solid hsl(194, 23%, 64%);
+  box-shadow: 4px 4px 10px 5px hsl(194, 23%, 64%)
+}
+
+.three {
+  grid-area: three;
+  padding: 10px;
+  border-top: 2px solid hsl(194, 23%, 64%);
+  border-left: 2px solid hsl(194, 23%, 64%);
+  box-shadow: 4px 4px 10px 5px hsl(194, 23%, 64%)
+}
+
+.one,
+.two,
+.three {
+  max-width: 100%;  
+}
+
+#parks h3 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 1.55rem;
+  text-align: center;
+  margin-top: 1.15rem;  
+}
+
+#parks p {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1rem;
+  line-height: 1.5em;
+  text-align: center;
+  padding: 10px;  
+  }
+}
+
+
+/** First Images Section **/
+.images-wrapper {
+  width: 100%;  
+  background-color: white;
+  padding: 25px;
+  border-top: 2px hsl(165, 100%, 35%);  
+}
+
+.member-images {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;  
+  margin: 0 auto;   
+}
+
+.member-images img {
+  max-width: 100%;  
+}
+
+
+/** Desktop view **/
+@media only screen and (min-width: 768px) {  
+
+  .member-images {    
+    width: 100%;
+    display: grid;
+    margin: 0 auto;    
+    column-gap: 20px;
+    row-gap: 10px;
+    grid-template-rows: minmax(250px, 300px) minmax(300px, 350px) minmax(200px, 250px) minmax(200px, 250px);        
+    grid-template-columns: minmax(200px, 250px) minmax(200px, 250px) minmax(225px, 275px) minmax(225px, 275);
+    grid-template-areas:
+    "img1 img1 img1 img1"
+    "img2 img2 img3 img3"
+    "img2 img2 img5 img4"
+    "img2 img2 img6 img4"    
+  }
+  
+  .member-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0 auto;
+  }
+
+  .img1 {    
+    grid-area: img1;
+  }
+  
+  .img2 {
+    grid-area: img2;
+  }
+
+  .img3 {
+    grid-area: img3;    
+  }
+
+  .img4 {
+    grid-area: img4;    
+  } 
+
+  .img5 {
+    grid-area: img5;    
+  }
+
+  .img6 {
+    grid-area: img6;    
+  }
+}
+
+
+/** Events Section **/
+#events-wrapper {
+  font-size: 16px;
+  width: 100%;
+  padding: 40px;  
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  background-color: hsl(209, 53%, 79%);      
+}
+
+#events-wrapper > .events {  
+  margin: 1rem;  
+  box-shadow: 10px 10px 5px hsla(345, 9%, 9%, 0.5);
+  background-color: hsl(177, 98%, 49%);   
+}
+
+#events-wrapper h2 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  margin-top: 1.5rem;
+  font-size: 1.90rem;
+  text-align: center;
+}
+
+#events-wrapper ul {
+  padding: .5rem;
+  margin: 1rem;   
+}
+
+#events-wrapper li {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1.25rem;  
+  padding: 8px;
+}
+
+@media only screen and (min-width: 768px) {
+  #events-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }    
+
+  #events-wrapper > .events {
+    width: 60%;
+    border-top: 1px solid hsl(210, 13%, 69%);
+    border-left: 1px solid hsl(210, 13%, 69%);   
+    margin-top: 1.5rem;       
+  }
+}
+
+@media only screen and (min-width:1024px) {
+  #events-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  #events-wrapper > .events {
+    width: 30%;            
+  }
+}
+
+
+/***=== FOOTER ===***/
+footer {
+  font-size: 16px;
+  width: 100%;
+  height: auto; 
+  background-color: hsl(345, 9%, 9%);
+  font-size: 16px;  
+}
+
+#top {  
+  margin: 0 auto;
+  padding: .5rem;
+  text-decoration: none;
+}
+
+.links-wrap {
+  margin-top: 1.5rem;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-around;
+  border-top: 2px solid rgb(189, 168, 168);
+  border-bottom: 2px solid rgb(189, 168, 168);
+}
+
+footer a {
+  text-decoration: none;
+  display: block;
+  color: whitesmoke;
+  text-align: center;       
+}
+
+footer a:hover {
+  color: hsl(165, 100%, 35%);
+}
+
+#hiker {
+  max-width: 75px;
+  min-width: 65px;
+  padding: 5px;
+  background-color: whitesmoke;
+  border-radius: 5px;
+}
+
+#socialmedia {
+  width: 30%;
+  margin: 10px auto 0px auto;  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#socialmedia img {
+   width: 80%;      
+}
+
+footer p {
+  font-size: .75em;
+  color: aliceblue;
+  text-align: center;
+  margin: 50px 0px 25px 0px;
+}
+
+@media only screen and (min-width: 768px) {
+  #socialmedia img {
+    width: 50%;
+  }
+}
