@@ -1,9 +1,147 @@
-<html>
- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/style.css">
+    
+  <title>Document</title>
+</head>
 <body>
-  <h1>Philip Dufour</h1>
-  <p>Welcome to my website!</p>
-  <img src="https://content.codecademy.com/articles/github-pages-via-web-app/happy-ice-cream.gif" />
+  <header> 
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" name="nav-toggle">
+      <div class="nav-toggle-wrap"><label for="nav-toggle" class="nav-toggle-label"><span></span></label></div>           
+      <img src="images/mountain-logo.png">
+    
+    <!-- NAV BAR -->    
+    <nav>                  
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Equipment</a></li> 
+      </ul>
+    </nav>    
+  </header>  
+
+  <div id="wrapper">
+
+  <!-- HERO -->
+    <div class="hero">           
+      <div class="hero-heading">                
+        <h1><span>Rocky Mountain</span><br>Hiking Club</h1>
+      </div>            
+    </div>
+  
+
+  <!--=== MAIN CONTENT ===-->
+
+    <!-- Park Description Section -->
+    <div id="parks">
+      <div class="col one">
+        <h3>Park Name</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam.</p>      
+      </div>
+      <div class="col two">
+        <h3>Park Name</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam.</p>      
+      </div>
+      <div class="col three">
+        <h3>Park Name</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam.</p>      
+      </div>
+    </div>
+    
+    <!-- Images -->
+    <div class="images-wrapper">
+      <div class="member-images">
+        <div class="img1">
+          <img class="jasper-panorama" src="images/jasper-panorama.jpg">
+        </div>
+        <div class="img2">
+          <img class="mist-mountain-halfway" src="images/mist-mountain-halfway.jpg">
+        </div>
+        <div class="img3">
+          <img class="jasper1" src="images/jasper1.jpg">
+        </div>
+        <div class="img4">
+          <img class="kananaskis1" src="images/kananaskis1.jpg">
+        </div>
+        <div class="img5">
+          <img class="mist-mountain-peak" src="images/mist-mountain-peak.jpg">
+        </div>
+        <div class="img6">
+          <img class="glory" src="images/glory.jpg">
+        </div>        
+      </div>
+    </div>
+
+    <!-- Upcoming Events -->
+    <section id="events-wrapper">
+      <div class="june events">
+        <h2>June</h2>
+        <ul>
+          <li>This is an event happening this month</li>
+          <li>This is an event happening this month</li>
+          <li>This is an event happening this month</li>
+          <li>This is an event happening this month</li>
+        </ul>
+      </div>
+      <div class="july events">
+        <h2>July</h2>
+        <ul>
+          <li>This is an event happening this month</li>
+          <li>This is an event happening this month</li>
+          <li>This is an event happening this month</li>
+          <li>This is an event happening this month</li>          
+        </ul>
+      </div>
+      <div class="august events">
+        <h2>August</h2>
+        <ul>
+          <li>This is an event happening this month</li>
+          <li>This is an event happening this month</li>
+          <li>This is an event happening this month</li>
+          <li>This is an event happening this month</li>
+        </ul>
+      </div>
+    </section>
+
+    <!--- FOOTER --->
+    <footer>
+      <a href="#" id="top">Top</a>
+      <div class="links-wrap">
+      <img src="images/hiking-logo.png" id="hiker">
+         <div class="footer-links1">
+           <a href="#">FAQ's</a>
+           <a href="#">Posts</a>
+           <a href="#">Forums</a>
+        </div>
+        <div class="footer-links2">
+          <a href="#">About Us</a>
+           <a href="#">Contact</a>
+           <a href="#">Affiliates</a>
+           <a href="#">Resources</a>
+        </div>
+      </div>
+      <div id="socialmedia">
+        <a href="#"><img src="images/instagram.png"></a>
+         <a href="#"><img src="images/linkedin.png"></a>
+         <a href="#"><img src="images/social-network.png"></a>
+         <a href="#"><img src="images/twitter.png"></a>
+         <a href="#"><img src="images/youtube.png"></a>
+      </div>      
+      <p>Copyright@RockyMountainHikingGroup</p>
+    </footer>
+  </div><!-- Wrapper closing div --> 
+   
+  <!-- <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
 </body>
- 
 </html>
